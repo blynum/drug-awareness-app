@@ -3,15 +3,17 @@ const app = express();
 const morgan = require('morgan');
 require('dotenv').config();
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // Middleware
 app.use(express.json()); // Parse incoming requests with JSON payloads
 app.use(morgan('dev'));  // Logging
+app.use(cors());//Cross-Origin Resource Sharing
 
 // Connect to MongoDB
 const connectToMongoDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(process.env.MONGODB_URI);
         console.log('Connected to MongoDB');
     } catch (err) {
         console.error('Failed to connect to MongoDB', err);

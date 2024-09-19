@@ -1,0 +1,128 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: #333;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: #fff;
+  margin: 10px 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px; /* Space between buttons */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button.delete-btn {
+  background-color: #ff4d4d;
+}
+
+button.delete-btn:hover {
+  background-color: #cc0000;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  width: 300px;
+}
+
+input,
+textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* Navigation */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #0056b3;
+}
+
+/* Responsive Layout for Mobile Devices */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-size: 1.5em;
+  }
+
+  li {
+    margin: 15px 0;
+    padding: 20px;
+  }
+
+  button {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%; /* Make buttons take up full width */
+  }
+
+  nav ul li {
+    display: block;
+    margin: 10px 0; /* Stack navigation items on smaller screens */
+  }
+
+  form {
+    width: 100%; /* Form takes up full width on mobile */
+  }
+
+  input,
+  textarea {
+    width: 100%; /* Inputs take up full width */
+  }
+}

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Story = require('./models/story');
+const Story = require('../models/Story');
+
 
 // GET all stories
 router.get('/', async (req, res, next) => {
@@ -11,6 +12,20 @@ router.get('/', async (req, res, next) => {
         next(err);
     }
 });
+
+// GET a story by ID
+router.get('/:id', async (req, res, next) => {
+    try {
+        const story = await Story.findById(req.params.id);
+        if (!story) {
+            return res.status(404).json({ message: 'Story not found' });
+        }
+        res.status(200).json(story);
+    } catch (err) {
+        next(err);
+    }
+});
+
 
 // POST a new story
 router.post('/', async (req, res, next) => {
