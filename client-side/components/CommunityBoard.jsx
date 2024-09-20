@@ -106,36 +106,36 @@ const CommunityBoard = () => {
             <p>{story.content}</p>
             <button onClick={() => handleEdit(story)}>Edit</button>
             <button onClick={() => handleDelete(story._id)}>Delete</button>
+            {isEditing && (
+              <div>
+                <h2>Edit Story</h2>
+                <form onSubmit={handleUpdate}>
+                  <input
+                    type="text"
+                    name="title"
+                    value={editStory.title}
+                    onChange={(e) =>
+                      setEditStory({ ...editStory, title: e.target.value })
+                    }
+                    placeholder="Title"
+                  />
+                  <textarea
+                    name="content"
+                    value={editStory.content}
+                    onChange={(e) =>
+                      setEditStory({ ...editStory, content: e.target.value })
+                    }
+                    placeholder="Your story..."
+                  />
+                  <button type="submit">Save Changes</button>
+                  <button onClick={() => setIsEditing(false)}>Cancel</button>
+                </form>
+              </div>
+            )}
           </li>
         ))}
       </ul>
       {/* Edit Story Form */}
-      {isEditing && (
-        <div>
-          <h2>Edit Story</h2>
-          <form onSubmit={handleUpdate}>
-            <input
-              type="text"
-              name="title"
-              value={editStory.title}
-              onChange={(e) =>
-                setEditStory({ ...editStory, title: e.target.value })
-              }
-              placeholder="Title"
-            />
-            <textarea
-              name="content"
-              value={editStory.content}
-              onChange={(e) =>
-                setEditStory({ ...editStory, content: e.target.value })
-              }
-              placeholder="Your story..."
-            />
-            <button type="submit">Save Changes</button>
-            <button onClick={() => setIsEditing(false)}>Cancel</button>
-          </form>
-        </div>
-      )}
     </div>
   );
 };

@@ -8,8 +8,9 @@ const EducationalPage = () => {
   // Fetch the drugs data when the component mounts
   useEffect(() => {
     axios
-      .get("http://localhost:5001/api/drugs") // Replace with your API endpoint
+      .get("/api/drugs") // Replace with your API endpoint
       .then((response) => {
+        console.log(response.data);
         setDrugs(response.data); // Update the state with the fetched data
       })
       .catch((error) => {
@@ -28,7 +29,7 @@ const EducationalPage = () => {
           <li key={drug._id}>
             <h2>{drug.name}</h2>
             <img
-              src={`http://localhost:5001/${drug.image}`}
+              src={`${drug.image}`}
               alt={drug.name}
               style={{ width: "200px", height: "auto" }}
             />
